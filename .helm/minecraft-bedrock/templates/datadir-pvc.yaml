@@ -2,9 +2,9 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "minecraft-bedrock.fullname" . }}-datadir
+  name: {{ include "minecraft-bedrock.name" . }}-datadir
   labels:
-    app: {{ template "minecraft-bedrock.fullname" . }}
+    app: {{ include "minecraft-bedrock.name" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
