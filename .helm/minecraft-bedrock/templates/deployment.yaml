@@ -33,7 +33,14 @@ spec:
           - name: datadir
             mountPath: /data
           - name: config-volume
-            mountPath: /data
+            mountPath: /data/ops.json
+            subPath: ops.json
+          - name: config-volume
+            mountPath: /data/server.properties
+            subPath: server.properties
+          - name: config-volume
+            mountPath: /data/whitelist.properties
+            subPath: whitelist.properties
       volumes:
         - name: config-volume
           configMap:
