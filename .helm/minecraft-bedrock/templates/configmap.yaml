@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+Metadata:
+  name: {{ template "fullname" . }}-config
+  labels:
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+
+data:
+{{ (tpl (.Files.Glob "configs/*").AsConfig . ) | indent 2 }}

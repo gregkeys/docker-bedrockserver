@@ -1,0 +1,36 @@
+# ref: https://hub.docker.com/r/itzg/minecraft-server/
+image: gregkeys21/minecraft-bedrock
+imageTag: latest
+
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 500m
+
+#securityContext:
+  # Security context settings
+  runAsUser: 1000
+  fsGroup: 2000
+
+minecraftServer:
+  # This must be overridden, since we can't accept this for the user.
+  eula: "FALSE"
+  # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
+  version: "1.13.1"
+
+persistence:
+  ## minecraft data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  dataDir:
+    # Set this to false if you don't care to persist state between restarts.
+    enabled: true
+    Size: 1Gi
