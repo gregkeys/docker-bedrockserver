@@ -32,9 +32,12 @@ spec:
           volumeMounts:
           - name: datadir
             mountPath: /data
-          - name: {{ include "minecraft-bedrock.name" . }}-config
+          - name: config-volume
             mountPath: /data
       volumes:
+        - name: config-volume
+          configMap:
+            name: {{ include "minecraft-bedrock.name" . }}-config
         - name: datadir
         {{- if .Values.persistence.dataDir.enabled }}
           persistentVolumeClaim:
