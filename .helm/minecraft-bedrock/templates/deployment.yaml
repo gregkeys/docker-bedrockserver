@@ -34,15 +34,15 @@ spec:
             value: {{ .Values.minecraftServer.bedrockDownloadUrl | quote }}
           volumeMounts:
           - name: datadir
-            mountPath: /data
+            mountPath: /home/bedrock/bedrock_server/
           - name: config-volume
-            mountPath: /data/ops.json
+            mountPath: /home/bedrock/bedrock_server/ops.json
             subPath: ops.json
           - name: config-volume
-            mountPath: /data/server.properties
+            mountPath: /home/bedrock/bedrock_server/server.properties
             subPath: server.properties
           - name: config-volume
-            mountPath: /data/whitelist.properties
+            mountPath: /home/bedrock/bedrock_server/whitelist.properties
             subPath: whitelist.properties
       volumes:
         - name: config-volume
