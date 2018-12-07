@@ -3,8 +3,10 @@ kind: ConfigMap
 Metadata:
   name: {{ include "minecraft-bedrock.name" . }}-config
   labels:
-    heritage: {{ .Release.Service }}
-    release: {{ .Release.Name }}
+    app.kubernetes.io/name: {{ include "minecraft-bedrock.name" . }}
+    helm.sh/chart: {{ include "minecraft-bedrock.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
 
 data:
 {{ (tpl (.Files.Glob "configs/*").AsConfig . ) | indent 2 }}

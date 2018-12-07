@@ -28,7 +28,7 @@ spec:
               hostPort: 19132
               protocol: UDP
           resources:
-{{ toYaml .Values.resources | indent 10 }}
+{{ toYaml .Values.resources | indent 11 }}
           volumeMounts:
           - name: datadir
             mountPath: /data
