@@ -29,6 +29,9 @@ spec:
               protocol: UDP
           resources:
 {{ toYaml .Values.resources | indent 11 }}
+          env:
+          - name: BEDROCK_DOWNLOAD_ZIP
+            value: {{ .Values.minecraftServer.bedrockDownloadUrl | quote }}
           volumeMounts:
           - name: datadir
             mountPath: /data
