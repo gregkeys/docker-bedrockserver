@@ -38,7 +38,7 @@ spec:
         - name: datadir
         {{- if .Values.persistence.dataDir.enabled }}
           persistentVolumeClaim:
-            claimName: {{ include "minecraft-bedrock.name" . }}-datadir
+            claimName: bedrock-datadir
         {{- else }}
           emptyDir: {}
         {{- end }}

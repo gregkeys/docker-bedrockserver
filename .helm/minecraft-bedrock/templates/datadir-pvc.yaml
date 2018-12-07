@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "minecraft-bedrock.name" . }}-datadir
+  name: bedrock-datadir
   labels:
     app: {{ include "minecraft-bedrock.name" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
