@@ -16,7 +16,7 @@ securityContext:
   fsGroup: 2000
 
 minecraftServer:
-  bedrockDownloadUrl: "https://minecraft.azureedge.net/bin-linux/bedrock-server-1.11.4.2.zip"
+  bedrockDownloadUrl: "https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip"
 
 persistence:
   ## minecraft data Persistent Volume Storage Class
